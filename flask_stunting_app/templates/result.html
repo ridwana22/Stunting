@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Prediksi Stunting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hasil Analisis</h1>
+        </header>
+        
+        <main>
+            <div class="result-card {% if prediction == 'Stunting' %}result-stunting{% else %}result-normal{% endif %}">
+                <h2>Hasil Prediksi (Machine Learning)</h2>
+                <p class="prediction-text">{{ prediction }}</p>
+                <p class="probability-text">Tingkat Keyakinan: <strong>{{ probability }}%</strong></p>
+            </div>
+
+            <div class="llm-card">
+                <h2>💡 Saran & Informasi (Analisis LLM)</h2>
+                
+                <div class="advice-section">
+                    <h3>Upaya Pencegahan</h3>
+                    <ul>
+                        {% for item in saran_pencegahan %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="advice-section">
+                    <h3>Rekomendasi Penanganan</h3>
+                     <ul>
+                        {% for item in saran_penanganan %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            
+            <a href="/" class="btn-back">Lakukan Prediksi Lain</a>
+        </main>
+    </div>
+</body>
+</html>

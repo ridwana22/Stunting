@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deteksi Dini Stunting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🩺 Deteksi Dini Stunting</h1>
+            <p>Masukkan data pertumbuhan anak untuk mendapatkan hasil prediksi berdasarkan Machine Learning.</p>
+        </header>
+        
+        <main>
+            <form action="/" method="post">
+                <div class="form-group">
+                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                    <select id="jenis_kelamin" name="jenis_kelamin" required>
+                        <option value="1">Laki-laki</option>
+                        <option value="0">Perempuan</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="umur_bulan">Umur (bulan)</label>
+                    <input type="number" id="umur_bulan" name="umur_bulan" placeholder="Contoh: 24" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tinggi_cm">Tinggi Badan (cm)</label>
+                    <input type="number" id="tinggi_cm" name="tinggi_cm" step="0.1" placeholder="Contoh: 85.5" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="berat_kg">Berat Badan (kg)</label>
+                    <input type="number" id="berat_kg" name="berat_kg" step="0.1" placeholder="Contoh: 10.2" min="0" required>
+                </div>
+                
+                <button type="submit" class="btn-submit">Prediksi Sekarang</button>
+            </form>
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>

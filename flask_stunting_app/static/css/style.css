@@ -1,0 +1,169 @@
+/* Basic Reset and Font */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main Container */
+.container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+}
+
+header h1 {
+    color: #005A9C; /* Deep Blue */
+    margin-bottom: 8px;
+    font-size: 2em;
+}
+
+header p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Important for padding and width */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Button Styling */
+.btn-submit, .btn-back {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, #007BFF, #005A9C);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none; /* For the 'a' tag button */
+}
+
+.btn-submit:hover, .btn-back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-back {
+    margin-top: 20px;
+    background: #6c757d; /* Gray for back button */
+}
+
+/* Result Page Styling */
+.result-card {
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 8px solid;
+}
+
+.result-stunting {
+    background-color: #fff4f4;
+    border-color: #e74c3c; /* Red */
+}
+
+.result-normal {
+    background-color: #f4fff6;
+    border-color: #2ecc71; /* Green */
+}
+
+.result-card h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.prediction-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.result-stunting .prediction-text {
+    color: #e74c3c;
+}
+
+.result-normal .prediction-text {
+    color: #2ecc71;
+}
+
+.probability-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0;
+}
+
+/* LLM Card Styling */
+.llm-card {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.llm-card h2 {
+    text-align: center;
+    color: #005A9C;
+    margin-top: 0;
+}
+
+.advice-section {
+    margin-top: 20px;
+}
+
+.advice-section h3 {
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.advice-section ul {
+    list-style-type: '✓ '; /* Custom bullet */
+    padding-left: 20px;
+}
+
+.advice-section ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
