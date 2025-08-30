@@ -37,7 +37,3 @@ Aplikasi dibangun dengan **Flask** sebagai backend dan dirancang dengan antarmuk
 
   * **Visualisasi**: Chart.js
 * **Lainnya**: `python-dotenv` (manajemen API Key), `Flask-Caching`
-
----
-
-Mau saya buatkan juga **struktur folder + cara install & run project** biar README ini lebih lengkap seperti proyek GitHub profesional?
