@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -22,9 +23,14 @@
                 <p class="probability-text">Tingkat Keyakinan: <strong>{{ probability }}%</strong></p>
             </div>
 
+            <div class="chart-container">
+                <h3>Visualisasi Kurva Pertumbuhan (Tinggi Badan vs Umur)</h3>
+                <canvas id="growthChart"></canvas>
+                <p class="chart-disclaimer">*Kurva standar yang ditampilkan adalah median (persentil ke-50) standar WHO untuk anak laki-laki sebagai referensi.</p>
+            </div>
+
             <div class="llm-card">
-                <h2>💡 Saran & Informasi (Analisis LLM)</h2>
-                
+                <h2>💡 Saran & Informasi Personal (Analisis LLM)</h2>
                 <div class="advice-section">
                     <h3>Upaya Pencegahan</h3>
                     <ul>
@@ -33,7 +39,6 @@
                         {% endfor %}
                     </ul>
                 </div>
-                
                 <div class="advice-section">
                     <h3>Rekomendasi Penanganan</h3>
                      <ul>
@@ -47,5 +52,72 @@
             <a href="/" class="btn-back">Lakukan Prediksi Lain</a>
         </main>
     </div>
+
+    <script>
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        
+        // Data anak dari server Flask
+        const userData = {
+            x: {{ user_data.umur }},
+            y: {{ user_data.tinggi }}
+        };
+
+        // Data referensi median tinggi badan anak laki-laki standar WHO (persentil ke-50)
+        // Format: {x: umur_bulan, y: tinggi_cm}
+        const whoMedianData = [
+            {x: 0, y: 49.9}, {x: 6, y: 67.6}, {x: 12, y: 75.7}, {x: 18, y: 82.3}, 
+            {x: 24, y: 87.8}, {x: 36, y: 96.1}, {x: 48, y: 103.3}, {x: 60, y: 110.0}
+        ];
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: 'Anak Anda',
+                    data: [userData],
+                    backgroundColor: '#e74c3c',
+                    borderColor: '#c0392b',
+                    pointRadius: 8,
+                    pointHoverRadius: 10,
+                    type: 'scatter' // Tampilkan sebagai titik
+                }, {
+                    label: 'Median Standar WHO (Laki-laki)',
+                    data: whoMedianData,
+                    borderColor: '#2980b9',
+                    backgroundColor: 'rgba(41, 128, 185, 0.1)',
+                    fill: false,
+                    borderWidth: 2,
+                    pointRadius: 3,
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                        title: {
+                            display: true,
+                            text: 'Umur (Bulan)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Tinggi Badan (cm)'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: (${context.parsed.x} bln, ${context.parsed.y} cm)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
