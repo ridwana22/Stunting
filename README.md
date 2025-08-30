@@ -1,29 +1,43 @@
-🩺 Deteksi Dini Stunting dengan Machine Learning & Gemini AI
-Aplikasi web ini adalah sebuah purwarupa (prototype) yang dirancang untuk membantu melakukan deteksi dini stunting pada anak-anak menggunakan model Machine Learning. Aplikasi ini kemudian diintegrasikan dengan Google Gemini (LLM) untuk memberikan saran pencegahan dan penanganan yang dinamis dan personal.
+# 🩺 Deteksi Dini Stunting dengan Machine Learning & Gemini AI
 
-Aplikasi ini dibangun menggunakan Flask sebagai kerangka kerja backend dan dirancang dengan antarmuka yang ramah pengguna.
+Aplikasi web ini merupakan **prototype** yang dirancang untuk membantu **deteksi dini stunting pada anak-anak** menggunakan model **Machine Learning**. Sistem ini kemudian diintegrasikan dengan **Google Gemini (LLM)** untuk memberikan **saran pencegahan dan penanganan yang dinamis serta personal**.
 
-✨ Fitur Utama
-Prediksi Berbasis Machine Learning: Menggunakan model yang telah dilatih (berdasarkan dataset relevan) untuk memprediksi status stunting berdasarkan input data anak (jenis kelamin, umur, tinggi, berat).
+Aplikasi dibangun dengan **Flask** sebagai backend dan dirancang dengan antarmuka yang **sederhana, interaktif, dan ramah pengguna**.
 
-Saran Dinamis dari LLM: Terintegrasi dengan Google Gemini (gemini-1.5-flash-latest) untuk memberikan rekomendasi pencegahan dan penanganan yang dipersonalisasi sesuai dengan data dan hasil prediksi anak.
+---
 
-Visualisasi Data: Menampilkan posisi pertumbuhan anak pada kurva standar WHO (median) untuk memberikan konteks visual yang lebih baik kepada pengguna.
+## ✨ Fitur Utama
 
-Caching: Mengimplementasikan sistem cache untuk menyimpan respons dari LLM, sehingga mengurangi latensi dan menghemat biaya API untuk permintaan yang berulang.
+* **Prediksi Berbasis Machine Learning**
+  Menggunakan model terlatih (berdasarkan dataset relevan) untuk memprediksi status stunting berdasarkan data anak (jenis kelamin, umur, tinggi, berat).
 
-Antarmuka Interaktif: Dilengkapi dengan indikator loading dan validasi input di sisi klien untuk meningkatkan pengalaman pengguna.
+* **Saran Dinamis dari LLM**
+  Terintegrasi dengan **Google Gemini (gemini-1.5-flash-latest)** untuk memberikan rekomendasi pencegahan dan penanganan yang dipersonalisasi sesuai dengan data serta hasil prediksi anak.
 
-Manajemen Error: Sistem penanganan error yang baik untuk memberikan umpan balik yang jelas jika terjadi masalah pada input atau koneksi API.
+* **Visualisasi Data**
+  Menampilkan posisi pertumbuhan anak pada kurva standar **WHO (median)** untuk memberikan konteks visual yang lebih jelas kepada pengguna.
 
-🛠️ Teknologi yang Digunakan
-Backend: Python, Flask
+* **Caching**
+  Mengimplementasikan sistem cache untuk menyimpan respons dari LLM, sehingga dapat mengurangi latensi dan menghemat biaya API untuk permintaan yang berulang.
 
-Machine Learning: Scikit-learn, Pandas, Joblib
+* **Antarmuka Interaktif**
+  Dilengkapi dengan indikator loading, validasi input di sisi klien, serta desain yang ramah pengguna untuk meningkatkan pengalaman penggunaan aplikasi.
 
-Large Language Model (LLM): Google Gemini API (google-generativeai)
+* **Manajemen Error**
+  Sistem penanganan error yang baik untuk memberikan umpan balik yang jelas jika terjadi masalah pada input atau koneksi API.
 
-Frontend: HTML, CSS, JavaScript
--- Visualisasi: Chart.js
+---
 
-Lainnya: python-dotenv (untuk manajemen API Key), Flask-Caching
+## 🛠️ Teknologi yang Digunakan
+
+* **Backend**: Python, Flask
+* **Machine Learning**: Scikit-learn, Pandas, Joblib
+* **Large Language Model (LLM)**: Google Gemini API (`google-generativeai`)
+* **Frontend**: HTML, CSS, JavaScript
+
+  * **Visualisasi**: Chart.js
+* **Lainnya**: `python-dotenv` (manajemen API Key), `Flask-Caching`
+
+---
+
+Mau saya buatkan juga **struktur folder + cara install & run project** biar README ini lebih lengkap seperti proyek GitHub profesional?
