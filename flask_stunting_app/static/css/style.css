@@ -20,10 +20,11 @@ body {
     width: 100%;
     max-width: 650px;
     text-align: center;
+    position: relative; /* ### BARU: Untuk positioning loading indicator */
 }
 
 header h1 {
-    color: #005A9C; /* Deep Blue */
+    color: #005A9C;
     margin-bottom: 8px;
     font-size: 2em;
 }
@@ -53,7 +54,7 @@ header p {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
-    box-sizing: border-box; /* Important for padding and width */
+    box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -77,7 +78,7 @@ header p {
     background: linear-gradient(90deg, #007BFF, #005A9C);
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
-    text-decoration: none; /* For the 'a' tag button */
+    text-decoration: none;
 }
 
 .btn-submit:hover, .btn-back:hover {
@@ -87,7 +88,54 @@ header p {
 
 .btn-back {
     margin-top: 20px;
-    background: #6c757d; /* Gray for back button */
+    background: #6c757d;
+}
+
+/* ### BARU: Styling untuk Pesan Error (Flash Message) */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    text-align: left;
+}
+.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* ### BARU: Styling untuk Indikator Loading */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    z-index: 10;
+}
+.spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #007BFF;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loading-overlay p {
+    font-weight: 600;
+    color: #005A9C;
 }
 
 /* Result Page Styling */
@@ -100,17 +148,12 @@ header p {
 
 .result-stunting {
     background-color: #fff4f4;
-    border-color: #e74c3c; /* Red */
+    border-color: #e74c3c;
 }
 
 .result-normal {
     background-color: #f4fff6;
-    border-color: #2ecc71; /* Green */
-}
-
-.result-card h2 {
-    margin-top: 0;
-    color: #333;
+    border-color: #2ecc71;
 }
 
 .prediction-text {
@@ -119,19 +162,24 @@ header p {
     margin: 10px 0;
 }
 
-.result-stunting .prediction-text {
-    color: #e74c3c;
+/* ### BARU: Styling untuk Chart Container */
+.chart-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+}
+.chart-container h3 {
+    margin-top: 0;
+    color: #333;
+}
+.chart-disclaimer {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 10px;
 }
 
-.result-normal .prediction-text {
-    color: #2ecc71;
-}
-
-.probability-text {
-    font-size: 1.1rem;
-    color: #555;
-    margin: 0;
-}
 
 /* LLM Card Styling */
 .llm-card {
@@ -159,7 +207,7 @@ header p {
 }
 
 .advice-section ul {
-    list-style-type: '✓ '; /* Custom bullet */
+    list-style-type: '✓ ';
     padding-left: 20px;
 }
 
